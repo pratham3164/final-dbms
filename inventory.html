@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>INVENTORY</title>
+        <link rel="stylesheet" href="table.css">
+
+        <link rel="stylesheet" href="navig.css">
+        <style>      
+        body{   background-color: #FEEAE6  } 
+        
+        ul {
+    background-color:#442C2E;
+    height: 50px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    writing-mode: horizontal-lr;
+     }
+     li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+li b{
+        display: block;
+        color: white;
+        font-size: 130%;
+        text-align: center;
+        padding: 14px 16px;
+      }
+      table { width: 1250px;  margin-left:auto; margin-right:auto;color: #502C2e;}
+    th { padding: 7px 10px 10px 10px;}
+    td { padding: 2px 10px;}
+    th {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 95%;
+    border-bottom: 2px solid #111111;
+    border-top: 1px solid #999;
+    text-align: left;
+    font-weight: bolder;
+    }
+    tr.even {
+    background-color: #efefef;
+    border-bottom: 2px solid #111111;}
+    div ,table{   float: center;  }
+    </style>
+    </head>
+    <body>
+                <ul>             
+                <li style="float:right" onclick="window.location.href='/homepg'"><a style="color:white">Home</a></li>
+                <li style="float:right"><a style="padding: 5px 5px;">
+                    <form action="/searchProduct" method="POST" >
+                     <select name="attribute" style="height: 40px;">
+                     <option value="pid">pid</option>
+                     <option value="pname">name</option>
+                     <option value="qty">Quanity ></option>
+                     <option value="cost">Cost ></option>
+                     <option value="Mprice">Market Price ></option>
+                     <option value="category">Category</option>
+
+                      </select>  
+                    <input type="search" style="height:40px; " name="check"></form></a></li>
+                <li style="float:right; text-align: center; color:white; padding: 14px;">Search Product :</li>
+                <li style="float:left"><b>INIVENTORY</b></li>
+               </ul>
+            <br>
+            <div>
+                <table>
+                <tr>
+                <th>P.ID</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Market price</th>
+                <th>Cost </th>
+                <th>Category</th>
+                 </tr>
+                 <% products.forEach(function(product) { %>
+                    <tr>                   
+                      <td><%= product.pid %></td>
+                      <td><%=product.pname %></td> 
+                      <td><%=product.qty %></td>
+                      <td><%=product.cost %></td>
+                      <td><%=product.Mprice %></td>
+                      <td><%=product.category %></td>
+                    </tr>
+                    <% }); %>
+                </table>
+          </div>  
+    </body>
+</html>
